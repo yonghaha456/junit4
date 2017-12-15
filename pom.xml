@@ -144,7 +144,6 @@
             Each mojo is an executable goal in Maven, and a plugin is a distribution of
             one or more related mojos.
             For more information see http://maven.apache.org/plugin-developers/index.html
-
             The following plugins are ordered according the Maven build lifecycle.
             http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
             -->
@@ -190,7 +189,12 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>       
+            </plugin>
+           
+           <!--  새로운 로직  -->
+           
+           
+         
             <plugin>
                 <groupId>com.google.code.maven-replacer-plugin</groupId>
                 <artifactId>replacer</artifactId>
@@ -212,6 +216,9 @@
                     <value>${project.version}</value>
                 </configuration>
             </plugin>
+            
+         
+            
             <plugin><!-- Using jdk 1.5.0_22, package-info.java files are compiled correctly. -->
                 <!--
                 java compiler plugin forked in extra process
@@ -256,6 +263,8 @@
                     </execution>
                 </executions>
             </plugin>
+            
+           
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${surefireVersion}</version>
@@ -264,7 +273,8 @@
                     <useSystemClassLoader>true</useSystemClassLoader>
                     <enableAssertions>false</enableAssertions>
                     
-					<testFailureIgnore>ture</testFailureIgnore>
+                    <testFailureIgnore>true</testFailureIgnore> 
+                    
                     
                 </configuration>
                 <dependencies>
@@ -274,7 +284,9 @@
                         <version>${surefireVersion}</version>
                     </dependency>
                 </dependencies>
-            </plugin>         
+            </plugin>
+          
+            
             <plugin>
                 <!--
                 This plugin can package the main artifact's sources (src/main/java)
@@ -375,6 +387,22 @@
                 <artifactId>maven-resources-plugin</artifactId>
                 <version>2.7</version>
             </plugin>
+            
+            
+            <!-- Cobertura Plugin -->
+            <!-- 
+            <plugin>
+		        <groupId>org.codehaus.mojo</groupId>
+		        <artifactId>cobertura-maven-plugin</artifactId>
+		        <version>2.7</version>
+		        <configuration>
+                    <formats>
+                        <format>xml</format>
+                    </formats>
+                </configuration>
+		    </plugin>
+		     -->
+            
         </plugins>
     </build>
 
@@ -449,12 +477,21 @@
                 </reportSets>
             </plugin>
             
-      		<plugin>
-        		<groupId>org.apache.maven.plugins</groupId>
-        		<artifactId>maven-pmd-plugin</artifactId>
-        		<version>3.8</version>
-      		</plugin>
-  
+            <!-- 
+            
+            <plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-pmd-plugin</artifactId>
+		        <version>3.8</version>
+		    </plugin>
+            
+            <plugin>
+		        <groupId>org.codehaus.mojo</groupId>
+		        <artifactId>jdepend-maven-plugin</artifactId>
+		        <version>2.0</version>
+		    </plugin>	      
+       -->
+      
         </plugins>
     </reporting>
 
