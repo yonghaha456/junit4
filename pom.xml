@@ -190,10 +190,7 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-            
-            <!--  새로운 로직 -->
-            <!-- 
+            </plugin>       
             <plugin>
                 <groupId>com.google.code.maven-replacer-plugin</groupId>
                 <artifactId>replacer</artifactId>
@@ -215,7 +212,6 @@
                     <value>${project.version}</value>
                 </configuration>
             </plugin>
-             -->
             <plugin><!-- Using jdk 1.5.0_22, package-info.java files are compiled correctly. -->
                 <!--
                 java compiler plugin forked in extra process
@@ -260,8 +256,6 @@
                     </execution>
                 </executions>
             </plugin>
-            
-            <!-- 
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${surefireVersion}</version>
@@ -269,6 +263,7 @@
                     <test>org/junit/tests/AllTests.java</test>
                     <useSystemClassLoader>true</useSystemClassLoader>
                     <enableAssertions>false</enableAssertions>
+                    <testFailureIgnore>ture</testFailureIgnore>
                 </configuration>
                 <dependencies>
                     <dependency>
@@ -277,9 +272,7 @@
                         <version>${surefireVersion}</version>
                     </dependency>
                 </dependencies>
-            </plugin>            
-             -->
-             
+            </plugin>         
             <plugin>
                 <!--
                 This plugin can package the main artifact's sources (src/main/java)
